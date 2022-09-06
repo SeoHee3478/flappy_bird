@@ -16,6 +16,7 @@ let player = {
   x: 0,
   y: 0,
   speed: 2,
+  score: 0,
 };
 
 function start() {
@@ -36,6 +37,9 @@ function start() {
   //bird의 Top 값을 갖는다
   window.requestAnimationFrame(playGame);
   //어떤 움직임이있을 것인지 미리 알려줘서 부드럽게 처리해줌
+  player.score++;
+  score.innerText = "SCORE : " + player.score;
+  //점수 추가
 }
 
 function playGame() {
@@ -62,7 +66,7 @@ function playGame() {
   }
   /*중력*/
   player.y += player.speed * 2;
-  
+
   bird.style.left = player.x + "px";
   bird.style.top = player.y + "px";
   console.log("game Playing");
