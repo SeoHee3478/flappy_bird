@@ -29,6 +29,16 @@ body {
   padding: 10px;
 }
 
+.gameMessage {
+  position: fixed;
+  top: 50px;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  text-align: center;
+  background-color: royalblue;
+}
+
 .bird {
   position: absolute;
   top: 100px;
