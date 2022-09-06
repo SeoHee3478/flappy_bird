@@ -27,6 +27,9 @@ function start() {
   wing.setAttribute("class", "wing");
   bird.appendChild(wing);
   gameArea.appendChild(bird);
+  //날개퍼덕이기
+  wing.pos = 15;
+  wing.style.top = wing.pos + "px";
   player.x = bird.offsetLeft;
   //bird의 left 값을 갖는다
   player.y = bird.offsetTop;
@@ -36,17 +39,26 @@ function start() {
 }
 
 function playGame() {
+  let move = false;
   if (keys.ArrowLeft && player.x > 0 ) {
     player.x -= player.speed;
+    move = true;
   }
   if (keys.ArrowRight && player.x < gameArea.offsetWidth - bird.offsetWidth) {
     player.x += player.speed;
+    move = true;
   }
   if (keys.ArrowUp && player.y > 0) {
     player.y -= player.speed;
+    move = true;
   }
   if (keys.ArrowDown && player.y < gameArea.offsetHeight - bird.offsetHeight) {
     player.y += player.speed;
+    move = true;
+  }
+  if (move) {
+    wing.pos = wing.pos === 15 ? 25 : 15;
+    wing.style.top = wing.pos + "px";
   }
   bird.style.left = player.x + "px";
   bird.style.top = player.y + "px";
